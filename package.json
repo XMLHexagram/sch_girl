@@ -5,7 +5,10 @@
   "main": "index.js",
   "author": "Hexagram",
   "license": "MIT",
-  "dependencies": {
-    "webpack": "^4.44.1"
+  "devDependencies": {
+    "mini-html-webpack-plugin": "^3.0.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-nano": "^1.0.0"
   }
 }
