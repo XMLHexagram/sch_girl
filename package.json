@@ -1,0 +1,11 @@
+{
+  "name": "sch-girl",
+  "version": "1.0.0",
+  "description": "simple todo list",
+  "main": "index.js",
+  "author": "Hexagram",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^4.44.1"
+  }
+}
