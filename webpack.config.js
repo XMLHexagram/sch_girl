@@ -7,7 +7,7 @@ const { WebpackPluginServe } = require('webpack-plugin-serve')
 const Dotenv = require('dotenv-webpack')
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
-console.log(process.env.PORT)
+console.log(111)
 
 module.exports = {
   watch: mode === 'development',
