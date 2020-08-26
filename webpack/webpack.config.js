@@ -5,7 +5,8 @@ const { mode } = require('webpack-nano/argv')
 const parts = require('./webpack.part.js')
 const { merge } = require('webpack-merge')
 
-console.log(mode)
+process.env.NODE_ENV = mode
+console.log(process.env.NODE_ENV)
 
 const commonConfig = merge([
   {
@@ -17,13 +18,19 @@ const commonConfig = merge([
   parts.WebpackNotifier(),
   parts.dotenv(),
   parts.errorOverlay(),
+  parts.bundle_analyzer(),
 ])
 
-const productionConfig = merge([parts.dashBoard(), parts.extractCSS()])
+const cssLoader = [parts.autoprefix(), parts.tailwind()]
+
+const productionConfig = merge([
+  parts.dashBoard(),
+  parts.extractCSS({ loaders: cssLoader }),
+])
 
 const developmentConfig = merge([
   parts.devServer(),
-  parts.extractCSS({ options: { hmr: true } }),
+  parts.extractCSS({ options: { hmr: true }, loaders: cssLoader }),
 ])
 
 const getConfig = (mode) => {

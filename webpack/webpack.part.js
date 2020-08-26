@@ -5,6 +5,7 @@ const Dotenv = require('dotenv-webpack')
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 exports.devServer = () => ({
   watch: true,
@@ -47,29 +48,29 @@ exports.WebpackNotifier = () => ({
   plugins: [new WebpackNotifierPlugin({ alwaysNotify: true })],
 })
 
-exports.loadCSS = ({ include, exclude } = {}) => ({
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        include,
-        exclude,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [require('autoprefixer'), require('precss')],
-            },
-          },
-        ],
-      },
-    ],
-  },
-})
+// exports.loadCSS = ({ include, exclude } = {}) => ({
+//   module: {
+//     rules: [
+//       {
+//         test: /\.css$/,
+//         include,
+//         exclude,
+//         use: [
+//           'style-loader',
+//           {
+//             loader: 'css-loader',
+//           },
+//           {
+//             loader: 'postcss-loader',
+//             options: {
+//               plugins: () => [require('autoprefixer'), require('precss')],
+//             },
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// })
 
 exports.extractCSS = ({ options = {}, loaders = [] } = {}) => {
   return {
@@ -91,3 +92,23 @@ exports.extractCSS = ({ options = {}, loaders = [] } = {}) => {
     ],
   }
 }
+
+exports.tailwind = () => ({
+  loader: 'postcss-loader',
+  options: {
+    plugins: [require('tailwindcss')],
+  },
+})
+
+exports.autoprefix = () => ({
+  loader: 'postcss-loader',
+  options: {
+    plugins: [require('autoprefixer')],
+  },
+})
+
+exports.bundle_analyzer = () => ({
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
+})
