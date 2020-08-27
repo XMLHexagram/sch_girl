@@ -4,6 +4,7 @@ const { mode } = require('webpack-nano/argv')
 
 const parts = require('./webpack.part.js')
 const { merge } = require('webpack-merge')
+const paths = require('./paths')
 
 process.env.NODE_ENV = mode
 console.log(process.env.NODE_ENV)
