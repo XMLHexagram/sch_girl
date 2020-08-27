@@ -6,6 +6,7 @@ const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const paths = require('./paths')
 
 exports.devServer = () => ({
   watch: true,
@@ -108,7 +109,35 @@ exports.autoprefix = () => ({
 })
 
 exports.bundle_analyzer = () => ({
-  plugins: [
-    new BundleAnalyzerPlugin()
-  ]
+  plugins: [new BundleAnalyzerPlugin()],
+})
+
+exports.load_URL = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 5000,
+            },
+          },
+        ],
+      },
+    ],
+  },
+})
+
+exports.load_javascript = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: paths.appSrc,
+        use: 'babel-loader',
+      },
+    ],
+  },
 })

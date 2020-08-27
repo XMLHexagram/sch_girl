@@ -12,6 +12,7 @@ const commonConfig = merge([
   {
     entry: ['./src', 'webpack-plugin-serve/client'],
     devtool: 'cheap-module-source-map',
+    mode: mode,
   },
   parts.page({ title: 'sch-girl' }),
   // parts.loadCSS(),
@@ -19,6 +20,8 @@ const commonConfig = merge([
   parts.dotenv(),
   parts.errorOverlay(),
   parts.bundle_analyzer(),
+  parts.load_URL(),
+  parts.load_javascript(),
 ])
 
 const cssLoader = [parts.autoprefix(), parts.tailwind()]

@@ -4,5 +4,6 @@
 @tailwind utilities;
 
 body {
-  background-color: cornsilk;
+  background-image: url('./big.png');
+  /* background-color: cornsilk; */
 }
