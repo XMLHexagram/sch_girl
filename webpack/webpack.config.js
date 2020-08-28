@@ -17,12 +17,12 @@ const commonConfig = merge([
   },
   parts.page({ title: 'sch-girl' }),
   // parts.loadCSS(),
-  parts.WebpackNotifier(),
   parts.dotenv(),
   parts.errorOverlay(),
   parts.bundle_analyzer(),
   parts.load_URL(),
-  parts.load_javascript(),
+  parts.load_react(),
+  parts.WebpackNotifier(),
 ])
 
 const cssLoader = [parts.autoprefix(), parts.tailwind()]

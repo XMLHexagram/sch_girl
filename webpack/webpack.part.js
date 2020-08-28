@@ -1,5 +1,5 @@
 const { WebpackPluginServe } = require('webpack-plugin-serve')
-const { MiniHtmlWebpackPlugin } = require('mini-html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 const Dotenv = require('dotenv-webpack')
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
@@ -25,10 +25,9 @@ exports.devServer = () => ({
 
 exports.page = ({ title }) => ({
   plugins: [
-    new MiniHtmlWebpackPlugin({
-      context: {
-        title,
-      },
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: paths.appHtml,
     }),
   ],
 })
@@ -130,11 +129,11 @@ exports.load_URL = () => ({
   },
 })
 
-exports.load_javascript = () => ({
+exports.load_react = () => ({
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         include: paths.appSrc,
         use: 'babel-loader',
       },

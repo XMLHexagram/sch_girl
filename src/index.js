@@ -1,7 +1,10 @@
-import component from './component'
-import './main.css'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
 
-document.body.appendChild(component())
-
-console.log('hello world')
-console.log(process.env.NODE_ENV)
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+)
