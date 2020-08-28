@@ -15,6 +15,7 @@ exports.devServer = () => ({
       client: {
         retry: true,
       },
+      open: true,
       host: '127.0.0.1',
       port: process.env.PORT || 8080,
       static: './dist',
@@ -47,30 +48,6 @@ exports.errorOverlay = () => ({
 exports.WebpackNotifier = () => ({
   plugins: [new WebpackNotifierPlugin({ alwaysNotify: true })],
 })
-
-// exports.loadCSS = ({ include, exclude } = {}) => ({
-//   module: {
-//     rules: [
-//       {
-//         test: /\.css$/,
-//         include,
-//         exclude,
-//         use: [
-//           'style-loader',
-//           {
-//             loader: 'css-loader',
-//           },
-//           {
-//             loader: 'postcss-loader',
-//             options: {
-//               plugins: () => [require('autoprefixer'), require('precss')],
-//             },
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// })
 
 exports.extractCSS = ({ options = {}, loaders = [] } = {}) => {
   return {

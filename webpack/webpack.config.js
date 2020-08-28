@@ -11,7 +11,7 @@ console.log(process.env.NODE_ENV)
 
 const commonConfig = merge([
   {
-    entry: ['./src', 'webpack-plugin-serve/client'],
+    entry: ['./src/renderer/main.js', 'webpack-plugin-serve/client'],
     devtool: 'cheap-module-source-map',
     mode: mode,
   },
