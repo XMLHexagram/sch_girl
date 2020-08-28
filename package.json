@@ -2,12 +2,13 @@
   "name": "sch-girl",
   "version": "1.0.0",
   "description": "simple todo list",
-  "main": "index.js",
+  "main": "./src/background.js",
   "author": "Hexagram",
   "license": "MIT",
   "scripts": {
     "start": "nodemon --watch webpack.** --exec \"webpack --config ./webpack/webpack.config.js --mode development\"",
-    "build": "webpack-dashboard -- webpack --config ./webpack/webpack.config.js --mode production"
+    "build": "webpack-dashboard -- webpack --config ./webpack/webpack.config.js --mode production",
+    "electron":"electron ."
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -32,10 +33,11 @@
     "webpack-merge": "^5.1.2",
     "webpack-nano": "^1.0.0",
     "webpack-notifier": "^1.8.0",
-    "webpack-plugin-serve": "^1.0.1"
+    "webpack-plugin-serve": "^1.0.1",
+    "electron": "^10.1.0",
+    "html-webpack-plugin": "^4.3.0"
   },
   "dependencies": {
-    "html-webpack-plugin": "^4.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
