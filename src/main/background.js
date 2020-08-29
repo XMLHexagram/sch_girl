@@ -1,4 +1,4 @@
-const { app, protocol, BrowserWindow } = require('electron')
+const { app, protocol, screen, BrowserWindow } = require('electron')
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -9,9 +9,14 @@ let win
 
 function createWindow() {
   // 创建浏览器窗口
+  let display = screen.getPrimaryDisplay()
+
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: Math.round(display.size.width / 3),
+    height: Math.round(display.size.height / 3),
+    x: Math.round(display.size.width / 1.55),
+    y: Math.round(display.size.height / 25),
+    alwaysOnTop:true,
     webPreferences: {
       nodeIntegration: false,
     },

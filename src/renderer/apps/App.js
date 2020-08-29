@@ -1,13 +1,10 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+import SimpleAccordion from '../components/accordion'
 
 function App() {
   return (
     <div>
-      <span>Hello React , Webpack And Electron</span>
-      <Button variant="contained" color="primary">
-        Hello Material UI
-      </Button>
+      <SimpleAccordion />
     </div>
   )
 }
