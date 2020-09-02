@@ -6,10 +6,10 @@
   "author": "Hexagram",
   "license": "MIT",
   "scripts": {
-    "web:serve": "nodemon --watch webpack.** --exec \"webpack --config ./webpack/webpack.config.js --mode development\"",
+    "web:serve": "nodemon --delay 5 --watch webpack.** --exec \"webpack --config ./webpack/webpack.config.js --mode development\"",
     "web:build": "webpack-dashboard -- webpack --config ./webpack/webpack.config.js --mode production",
     "electron:serve": "run-p web:serve electron:init",
-    "electron:init": "nodemon --watch background.js --exec \"electron\" ."
+    "electron:init": "nodemon --delay 5 --watch background.js --exec \"electron\" ."
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

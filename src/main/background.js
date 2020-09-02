@@ -13,10 +13,12 @@ function createWindow() {
 
   win = new BrowserWindow({
     width: Math.round(display.size.width / 3),
-    height: Math.round(display.size.height / 3),
+    height: Math.round(display.size.height / 2),
     x: Math.round(display.size.width / 1.55),
     y: Math.round(display.size.height / 25),
-    alwaysOnTop:true,
+    frame: false,
+    transparent: true,
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: false,
     },
