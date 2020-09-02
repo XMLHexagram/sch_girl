@@ -2,11 +2,15 @@
   "name": "sch-girl",
   "version": "1.0.0",
   "description": "simple todo list",
-  "main": "./src/main/background.js",
+  "main": "./bundle/main.js",
   "author": "Hexagram",
   "license": "MIT",
   "scripts": {
-    "web:serve": "nodemon --delay 5 --watch webpack.** --exec \"webpack --config ./webpack/webpack.config.js --mode development\"",
+    "start": "nodemon -n -l --delay 3 --watch webpack.** --exec \"run-p start:*\"",
+    "start:main": "webpack --config ./webpack/webpack.config.main.js --mode development --watch",
+    "start:render": "webpack --config ./webpack/webpack.config.render.js --mode development --watch",
+    "start:app": "electron .",
+    "web:serve": "nodemon --delay 5 --watch webpack.** --exec \"webpack --config ./webpack/webpack.config.render.js --mode development\"",
     "web:build": "webpack-dashboard -- webpack --config ./webpack/webpack.config.js --mode production",
     "electron:serve": "run-p web:serve electron:init",
     "electron:init": "nodemon --delay 5 --watch background.js --exec \"electron\" ."
@@ -48,18 +52,11 @@
     "react-redux": "^7.2.1",
     "redux": "^4.0.5"
   },
-  "browserslist": {
-    "production": [
-      ">1%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    "electron 10.0",
+    "electron 9.0",
+    "electron 8.0"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-env",

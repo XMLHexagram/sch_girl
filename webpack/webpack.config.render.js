@@ -1,7 +1,6 @@
 'use strict'
 
 const { mode } = require('webpack-nano/argv')
-
 const parts = require('./webpack.part.js')
 const { merge } = require('webpack-merge')
 const paths = require('./paths')
@@ -13,15 +12,20 @@ const commonConfig = merge([
   {
     entry: ['./src/renderer/main.js', 'webpack-plugin-serve/client'],
     devtool: 'cheap-module-source-map',
-    mode: mode,
+    mode: process.env.NODE_ENV,
+    output: {
+      path: paths.appBundle,
+      filename: 'renderer.js',
+    },
+    target: 'electron-renderer',
   },
   parts.page({ title: 'sch-girl' }),
   // parts.loadCSS(),
   parts.dotenv(),
   parts.errorOverlay(),
-  parts.bundle_analyzer(),
+  // parts.bundle_analyzer(),
   parts.load_URL(),
-  parts.load_react(),
+  parts.load_babel(),
   parts.WebpackNotifier(),
 ])
 

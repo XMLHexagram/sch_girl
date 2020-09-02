@@ -106,7 +106,7 @@ exports.load_URL = () => ({
   },
 })
 
-exports.load_react = () => ({
+exports.load_babel = () => ({
   module: {
     rules: [
       {
