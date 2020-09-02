@@ -4,11 +4,11 @@ import GroupOrientation from '../components/button'
 
 function App() {
   return (
-    <div className="w-screen h-screen grid grid-cols-6 overflow-hidden">
+    <div className="w-screen h-screen grid grid-cols-5 overflow-hidden">
       <div className="col-span-1">
         <GroupOrientation/>
       </div>
-      <div className="col-span-5 overflow-auto">
+      <div className="col-span-4 overflow-auto">
         <SimpleAccordion />
       </div>
     </div>

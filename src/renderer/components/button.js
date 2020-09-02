@@ -2,9 +2,10 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import { makeStyles } from '@material-ui/core/styles'
+// const { ipcRenderer } = window.require('electron')
+import { changeHeight } from '../ipcRender/sender'
 
 export default function GroupOrientation() {
-
   return (
     <div className={'flex w-full flex-row h-full flex-wrap'}>
       <ButtonGroup
@@ -13,9 +14,9 @@ export default function GroupOrientation() {
         aria-label="vertical outlined primary button group"
         className={'justify-start w-full'}
       >
-        <Button>add</Button>
-        <Button>organize</Button>
-        <Button>Three</Button>
+        <Button>Add</Button>
+        <Button>Organize</Button>
+        <Button onClick={changeHeight}>Fine</Button>
       </ButtonGroup>
 
       <ButtonGroup
