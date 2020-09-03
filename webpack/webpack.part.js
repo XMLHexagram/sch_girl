@@ -15,7 +15,7 @@ exports.devServer = () => ({
       client: {
         retry: true,
       },
-      open: true,
+      // open: true,
       host: '127.0.0.1',
       port: process.env.PORT || 8080,
       static: './dist',
