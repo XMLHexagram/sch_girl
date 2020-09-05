@@ -18,7 +18,7 @@ exports.devServer = () => ({
       // open: true,
       host: '127.0.0.1',
       port: process.env.PORT || 8080,
-      static: './dist',
+      static: './bundle',
       liveReload: true,
     }),
   ],

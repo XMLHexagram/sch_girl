@@ -15,4 +15,10 @@ export function initIpcListeners() {
     console.log(subWinSize)
     // console.log(subWin.getSize())
   })
+
+  ipcMain.on('get-window-size', (event, arg) => {
+    let window = BrowserWindow.getAllWindows()[0]
+    let WinSize = window.getContentSize()
+    event.returnValue = WinSize
+  })
 }

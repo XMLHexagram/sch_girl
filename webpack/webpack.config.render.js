@@ -10,9 +10,12 @@ console.log(process.env.NODE_ENV)
 
 const commonConfig = merge([
   {
-    entry: ['./src/renderer/main.js', 'webpack-plugin-serve/client'],
+    entry: ['./src/renderer/main.jsx', 'webpack-plugin-serve/client'],
     devtool: 'cheap-module-source-map',
     mode: process.env.NODE_ENV,
+    resolve: {
+			extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
+		},
     output: {
       path: paths.appBundle,
       filename: 'renderer.js',

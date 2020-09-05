@@ -17,7 +17,7 @@ function createWindow() {
     height: Math.round(display.size.height / 2.5),
     x: Math.round(display.size.width / 1.55),
     y: Math.round(display.size.height / 25),
-    frame: false,
+    // frame: false,
     resizable: false,
     transparent: true,
     alwaysOnTop: true,
