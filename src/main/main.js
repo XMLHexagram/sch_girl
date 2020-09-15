@@ -1,5 +1,6 @@
 const { app, protocol, screen, BrowserWindow } = require('electron')
 const { initIpcListeners } = require('./ipcMain/listener')
+import installExtension, { REDUX_DEVTOOLS,REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -13,12 +14,12 @@ function createWindow() {
   let display = screen.getPrimaryDisplay()
 
   win = new BrowserWindow({
-    width: Math.round(display.size.width / 3.3),
-    height: Math.round(display.size.height / 2.5),
-    x: Math.round(display.size.width / 1.55),
-    y: Math.round(display.size.height / 25),
+    // width: Math.round(display.size.width / 3.3),
+    // height: Math.round(display.size.height / 2.5),
+    // x: Math.round(display.size.width / 1.55),
+    // y: Math.round(display.size.height / 25),
     // frame: false,
-    resizable: false,
+    resizable: true,
     transparent: true,
     alwaysOnTop: true,
     webPreferences: {
@@ -36,7 +37,14 @@ function createWindow() {
 // Electron会在初始化完成并且准备好创建浏览器窗口时调用这个方法
 // 部分 API 在 ready 事件触发后才能使用。
 app.whenReady().then(() => {
+  installExtension(REDUX_DEVTOOLS)
+  .then((name) => console.log(`Added Extension:  ${name}`))
+  .catch((err) => console.log('An error occurred: ', err));
+  installExtension(REACT_DEVELOPER_TOOLS)
+  .then((name) => console.log(`Added Extension:  ${name}`))
+  .catch((err) => console.log('An error occurred: ', err));
   initIpcListeners(), createWindow()
+
 })
 
 // Quit when all windows are closed, except on macOS. There, it's common
