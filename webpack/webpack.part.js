@@ -60,7 +60,7 @@ exports.extractCSS = ({ options = {}, loaders = [] } = {}) => {
 						{
 							loader: 'css-loader',
 							options: {
-								modules: true,
+								modules: { auto: true },
 							},
 						},
 					].concat(loaders),

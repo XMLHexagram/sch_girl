@@ -1,7 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styles from './test_redux.css'
+import styles from './test_redux.module.css'
 
 console.log(styles)
 console.log(1111111111111111111111111111111111111111111111111111111111111111)
