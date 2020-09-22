@@ -6,7 +6,7 @@
   "author": "Hexagram",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon -n -l --delay 3 --watch webpack.** --exec \"npm-run-all -nl build:* --parallel start:*\"",
+    "start": "nodemon -n -l --delay 3 --watch webpack.** --exec \"npm-run-all -nl --parallel start:*\"",
     "start:main": "webpack --config ./webpack/webpack.config.main.js --mode development --watch",
     "start:render": "webpack --config ./webpack/webpack.config.render.js --mode development --watch",
     "start:app": "electron .",
